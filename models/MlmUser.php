@@ -196,6 +196,42 @@ public $childs;
 
 
 
+    public function getTreeUp($parent_id, $node = null)
+    {
+        $nodes = $this->find()->where(['parent_id' => $parent_id])->all();
+        if (count($nodes) > 0) {
+            echo '<ul>';
+            foreach ($nodes as $node) {
+                if($node->id == $parent_id) {
+
+                }
+                echo '<li>';
+                echo $node->id;
+                if($node->id == $parent_id) {
+                    echo '<button class="btn btn-xs btn-danger">';
+                    echo $node->path;
+                    echo '</button>';
+                }
+                else {
+                    echo '<span class="badge">';
+                    echo $node->path;
+                    echo '</span>';
+                }
+
+
+                $this->getTreeUp($node->id);
+                echo '</li>';
+
+            }
+            echo '</ul>';
+        }
+
+    }
+
+
+
+
+
 
 
     public function buildPath($id, &$tree = null, $i = 0)

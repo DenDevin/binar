@@ -51,6 +51,7 @@ $config = [
                 'mlm/<parent:\d+>/<position:\d+>' => 'mlm/index',
                 'mlm/<parent:\d+>' => 'mlm/index',
                 'mlm/fill/<parent:\d+>' => 'mlm/fill',
+                'mlm/get/<parent:\d+>' => 'mlm/get',
             ],
         ],
 

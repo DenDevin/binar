@@ -100,6 +100,25 @@ class MlmController extends Controller
     }
 
 
+    public function actionGet($id = null){
+        $binar = new MlmUser();
+
+            $roots = $binar->getRoots();
+            $parent = Yii::$app->request->get('parent');
+
+
+        return $this->render('get', [
+            'roots' => $roots,
+            'binar' => $binar,
+            'parent' => $parent,
+
+        ]);
+
+
+    }
+
+
+
     public function actionFill($parent)
     {
 
